@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script type="text/javascript">
+    var number_array = ['', ''];
+    var number_index = 0; //var jordan
+    var temp_num = '';
+    var operator = '';
+    var period_here = true;
+
+
+    function input_digit(typed_number) {
+        number_array[number_index] = number_array[number_index] + typed_number;
+        $("#inputdisplay").val(number_array[number_index]);
+        console.log("number_array : ", number_array);
+    };
+
+    function addition() {
+        number_index = 1;
+        operator = '+';
+    };
+
+    function subtract() {
+        number_index = 1;
+        operator = '-';
+    }
+
+    function divide() {
+        number_index = 1;
+        operator = '/';
+    }
+
+    function multiply() {
+        number_index = 1;
+        operator = '*';
+    }
+
+
+    function calculate() {
+        switch (operator) {
+            case '+':
+                number_array = number_array[0] + number_array[1];
+                $('#inputdisplay').val(number_array)
+                break;
+            case '-':
+                number_array = number_array[0] - number_array[1];
+                $('#inputdisplay').val(number_array)
+                break;
+            case '/':
+                number_array = number_array[0] / number_array[1]
+                $('#inputdisplay').val(number_array)
+                break;
+            case '*':
+                number_array = number_array[0] * number_array[1]
+                $('#inputdisplay').val(number_array)
+                break;
+
+
+        }
+    }
+    $('#period').click(function() {
+        console.log('decimal clicked')
+
+        if (period_here == true) {
+            operator = operator + $(this).text();
+            number_array[number_index] = number_array[number_index] + operator;
+            $('#inputdisplay').val(number_array[number_index]);
+            period_here = false;
+        }
+    });
+    </script>
+</head>
+
+<body>
+    <input id="inputdisplay" placeholder="Ready">
+    <br>
+    <button type="button" onclick="input_digit(1)">1</button>
+    <button type="button" onclick="input_digit(2)">2</button>
+    <button type="button" onclick="input_digit(3)">3</button>
+    <br>
+    <button type="button" onclick="input_digit(4)">4</button>
+    <button type="button" onclick="input_digit(5)">5</button>
+    <button type="button" onclick="input_digit(6)">6</button>
+    <br>
+    <button type="button" onclick="input_digit(7)">7</button>
+    <button type="button" onclick="input_digit(8)">8</button>
+    <button type="button" onclick="input_digit(9)">9</button>
+    <br>
+    <button type="button" onclick="input_digit(0)">0</button>
+    <div>
+        <button type="button" onclick="addition()">+</button>
+        <button type="button" onclick="subtract()">-</button>
+        <button type="button" onclick="divide()">/</button>
+        <button type="button" onclick="multiply()">*</button>
+        <button type="button" id="period">.</button>
+        <button type="button" onclick="calculate()">=</button>
+    </div>
+</body>
+
+</html>
