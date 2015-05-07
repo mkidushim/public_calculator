@@ -11,7 +11,8 @@
     var number_index = 0; //var jordan
     var answer = '';
     var operator = '';
-    var period_here = false;
+    var decimalAdded = false;
+
 
 
 
@@ -53,37 +54,67 @@
 
     }
 
+    function num_clear() {
+        number_array[1] = 0;
+        $('#inputdisplay').val(number_array[0]);
+    }
+
+    function exponent() {
+        number_index = 1;
+        operator = '^'
+        $('#inputdisplay').val(operator)
+
+    }
+
+
+    function Dot() {
+
+
+        if (!decimalAdded) {
+            number_array[number_index] = number_array[number_index] + ".";
+
+            $('#inputdisplay').val(number_array[number_index]);
+            decimalAdded = true;
+        }
+    }
+
+
+
+
+
+
     function calculate() {
 
 
 
         switch (operator) {
             case '+':
+
                 number_array[0] = parseInt(number_array[0]) + parseInt(number_array[1]);
                 answer = number_array[0]
                 $('#inputdisplay').val(answer)
                 break;
             case '-':
-                number_array[0] = number_array[0] - number_array[1];
-                answer = number_array[0]
+                answer = number_array[0] - number_array[1];
+                number_array[1] = answer;
                 $('#inputdisplay').val(answer)
                 break;
             case '/':
-                if (number_array[0] == 0) {
+                if (number_array[1] == 0) {
                     $('#inputdisplay').val('error')
                 } else {
-                    number_array[0] = number_array[0] / number_array[1]
-                    answer = number_array[0]
+                    answer = number_array[0] / number_array[1]
+                    number_array[1] = answer;
                     $('#inputdisplay').val(answer)
                 }
                 break;
             case '*':
-                number_array[0] = number_array[0] * number_array[1]
-                answer = number_array[0];
-                number_array[1] = answer;
-                number_index = 1;
+                answer = number_array[0] * number_array[1];
                 $('#inputdisplay').val(answer)
                 break;
+
+            case '^':
+                $('#inputdisplay').val(Math.pow(number_array[0], number_array[1]));
 
         }
     }
@@ -93,6 +124,7 @@
 <body>
     <button class="clear" onclick="all_clear()">A/C</button>
     <input id="inputdisplay" placeholder="Ready" readonly>
+    <button class="clear" onclick="num_clear()">Clear</button>
     <br>
     <button type="button" onclick="input_digit(9)">9</button>
     <button type="button" onclick="input_digit(8)">8</button>
@@ -111,8 +143,10 @@
     <br>
     <button type="button" onclick="input_digit(0)">0</button>
     <button class="operator" type="button" onclick="calculate()">=</button>
-    <button class="operator" type="button" id="period" onclick="exponent()">.</button>
+    <button class="operator" type="button" id="period" onclick="exponent()">^</button>
     <button class="operator" type="button" onclick="divide()">/</button>
+    <br>
+    <button class="operator" type="button" onclick="Dot()">.</button>
 </body>
 
 </html>
