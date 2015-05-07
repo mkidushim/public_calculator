@@ -9,9 +9,10 @@
     <script type="text/javascript">
     var number_array = ['', ''];
     var number_index = 0; //var jordan
-    var temp_num = '';
+    var answer = '';
     var operator = '';
     var period_here = false;
+
 
 
     function input_digit(typed_number) {
@@ -44,7 +45,11 @@
         $('#inputdisplay').val(operator)
     }
 
-    function power_of() {
+    function all_clear() {
+        number_index = 0;
+        number_array[0] = 0;
+        number_array[1] = 0;
+        $('#inputdisplay').val('');
 
     }
 
@@ -54,24 +59,30 @@
 
         switch (operator) {
             case '+':
-                number_array[1] = parseInt(number_array[0]) + parseInt(number_array[1]);
-                $('#inputdisplay').val(number_array)
+                number_array[0] = parseInt(number_array[0]) + parseInt(number_array[1]);
+                answer = number_array[0]
+                $('#inputdisplay').val(answer)
                 break;
             case '-':
-                number_array[1] = number_array[0] - number_array[1];
-                $('#inputdisplay').val(number_array[1])
+                number_array[0] = number_array[0] - number_array[1];
+                answer = number_array[0]
+                $('#inputdisplay').val(answer)
                 break;
             case '/':
-                if (number_array[1] == 0) {
+                if (number_array[0] == 0) {
                     $('#inputdisplay').val('error')
                 } else {
-                    number_array[1] = number_array[0] / number_array[1]
-                    $('#inputdisplay').val(number_array)
+                    number_array[0] = number_array[0] / number_array[1]
+                    answer = number_array[0]
+                    $('#inputdisplay').val(answer)
                 }
                 break;
             case '*':
-                number_array[1] = number_array[0] * number_array[1]
-                $('#inputdisplay').val(number_array[1]);
+                number_array[0] = number_array[0] * number_array[1]
+                answer = number_array[0];
+                number_array[1] = answer;
+                number_index = 1;
+                $('#inputdisplay').val(answer)
                 break;
 
         }
@@ -80,7 +91,7 @@
 </head>
 
 <body>
-    <button class="clear" onclick="clear()">Clear</button>
+    <button class="clear" onclick="all_clear()">A/C</button>
     <input id="inputdisplay" placeholder="Ready" readonly>
     <br>
     <button type="button" onclick="input_digit(9)">9</button>
