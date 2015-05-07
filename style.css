@@ -1,0 +1,12 @@
+button {
+    width: 5%;
+    height: 35px;
+    margin: 10px 0px 0px 5px;
+}
+
+#inputdisplay {
+    margin-left: 10px;
+    width: 220px;
+    height: 25px;
+    text-align: center;
+}
