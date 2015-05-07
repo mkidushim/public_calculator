@@ -12,26 +12,34 @@
     var answer = '';
     var operator = '';
     var decimalAdded = false;
+    var first_button = true;
 
 
+    function multiple_digits() {
+        if (first_button) {
 
+        }
+    }
 
     function input_digit(typed_number) {
         number_array[number_index] = number_array[number_index] + typed_number;
         $("#inputdisplay").val(number_array[number_index]);
         console.log("number_array : " + number_array);
+
     };
 
     function addition() {
         number_index = 1;
         operator = '+';
-        $('#inputdisplay').val(operator)
+        $('#inputdisplay').val(operator);
+        first_button = false;
     };
 
     function subtract() {
         number_index = 1;
         operator = '-';
         $('#inputdisplay').val(operator)
+
     }
 
     function divide() {
@@ -139,14 +147,14 @@
     <button type="button" onclick="input_digit(3)">3</button>
     <button type="button" onclick="input_digit(2)">2</button>
     <button type="button" onclick="input_digit(1)">1</button>
-    <button class="operator" type="button" onclick="multiply()">*</button>
+    <button class="operator" type="button" onclick="multiply()">x</button>
     <br>
     <button type="button" onclick="input_digit(0)">0</button>
     <button class="operator" type="button" onclick="calculate()">=</button>
-    <button class="operator" type="button" id="period" onclick="exponent()">^</button>
-    <button class="operator" type="button" onclick="divide()">/</button>
-    <br>
     <button class="operator" type="button" onclick="Dot()">.</button>
+    <button class="operator" type="button" onclick="divide()">÷</button>
+    <br>
+    <button class="operator" type="button" id="period" onclick="exponent()">^</button>
 </body>
 
 </html>
