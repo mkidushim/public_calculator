@@ -44,6 +44,9 @@
         $('#inputdisplay').val(operator)
     }
 
+    function power_of() {
+
+    }
 
     function calculate() {
 
@@ -51,7 +54,7 @@
 
         switch (operator) {
             case '+':
-                number_array = parseInt(number_array[0]) + parseInt(number_array[1]);
+                number_array[1] = parseInt(number_array[0]) + parseInt(number_array[1]);
                 $('#inputdisplay').val(number_array)
                 break;
             case '-':
@@ -62,7 +65,7 @@
                 if (number_array[1] == 0) {
                     $('#inputdisplay').val('error')
                 } else {
-                    number_array = number_array[0] / number_array[1]
+                    number_array[1] = number_array[0] / number_array[1]
                     $('#inputdisplay').val(number_array)
                 }
                 break;
@@ -72,14 +75,6 @@
                 break;
 
         }
-    }
-
-    function period_here() {
-        if (period_here == false) {
-
-        }
-
-
     }
     </script>
 </head>
