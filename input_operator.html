@@ -16,6 +16,7 @@
     var num_string = '';
     var display = null;
 
+
     $(document).ready(function() {
         display = $('#inputdisplay');
 
@@ -27,6 +28,8 @@
             first_button = false;
         } else {
             calculate();
+            console.log(number_array[1])
+            console.log(answer)
             number_array[0] = answer;
             number_array[1] = 0;
         }
@@ -64,6 +67,7 @@
     }
 
     function multiply() {
+
         number_index = 1;
         operator = '*';
         multiple_calc();
@@ -82,8 +86,12 @@
     function num_clear() {
 
         number_array[1] = 0;
-        num_string = '' + number_array[0];
-        display.val(num_string);
+        num_string = number_array[0];
+        operator = '';
+        console.log(num_string);
+        console.log(number_array[0])
+        first_button = true;
+        display.val(num_string)
     }
 
     function exponent() {
@@ -104,12 +112,14 @@
     function get_total() {
 
         calculate();
+        parseInt(num_string);
         num_string += ' = ' + answer;
         display.val(num_string);
     }
 
 
     function calculate() {
+        console.log(num_string);
 
         var result = null;
 
@@ -118,10 +128,12 @@
 
                 result = parseInt(number_array[0]) + parseInt(number_array[1]);
 
+                console.log(number_array);
                 break;
             case '-':
                 result = number_array[0] - number_array[1];
 
+                console.log(number_array);
                 break;
             case '/':
                 if (number_array[1] == 0) {
@@ -131,24 +143,25 @@
                     break;
                 } else {
                     result = number_array[0] / number_array[1]
-                    answer = result;
 
+                    console.log(number_array);
                 }
                 break;
             case '*':
-                result = number_array[0] * number_array[1];
-                answer = result;
+                result = parseFloat(number_array[0]) * parseFloat(number_array[1]);
 
+                console.log(number_array);
                 break;
 
             case '^':
                 result = (Math.pow(number_array[0], number_array[1]));
-                answer = result;
+
                 break;
 
 
         }
         answer = result;
+        console.log(answer);
 
     }
     </script>
