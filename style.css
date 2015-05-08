@@ -1,12 +1,28 @@
+body {
+    width: 80vw;
+    height: 90vh;
+}
+
 button {
-    width: 5%;
+    width: 75px;
     height: 35px;
     margin: 10px 0px 0px 5px;
 }
 
 #inputdisplay {
-    margin-left: 10px;
-    width: 140px;
+    position: relative;
+    left: 50px;
+    width: 230px;
     height: 25px;
     text-align: center;
+}
+
+.calc {
+    position: relative;
+    left: 20%;
+    top: 200px;
+}
+
+#space {
+    background-color: black;
 }
