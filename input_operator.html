@@ -28,7 +28,7 @@
         } else {
             calculate();
             number_array[0] = answer;
-            number_array[1] = '';
+            number_array[1] = 0;
         }
 
 
@@ -80,8 +80,10 @@
     }
 
     function num_clear() {
+
         number_array[1] = 0;
-        display.val(number_array[0]);
+        num_string = '' + number_array[0];
+        display.val(num_string);
     }
 
     function exponent() {
@@ -123,20 +125,25 @@
                 break;
             case '/':
                 if (number_array[1] == 0) {
-                    //$('#inputdisplay').val('error')
+                    console.log('error');
+                    result = 'error'
+                    display.val(result)
+                    break;
                 } else {
                     result = number_array[0] / number_array[1]
+                    answer = result;
 
-                    //$('#inputdisplay').val(answer)
                 }
                 break;
             case '*':
                 result = number_array[0] * number_array[1];
-                //$('#inputdisplay').val(answer)
+                answer = result;
+
                 break;
 
             case '^':
                 result = (Math.pow(number_array[0], number_array[1]));
+                answer = result;
                 break;
 
 
@@ -172,8 +179,8 @@
         <button class="operator" type="button" onclick="divide()">÷</button>
         <br>
         <button class="operator" type="button" id="period" onclick="exponent()">^</button>
-        <button class="clear button" onclick="num_clear()">Num_Clear</button>
-        <button class="clear" onclick="all_clear()">Clear</button>
+        <button class="clear button" onclick="num_clear()">C</button>
+        <button class="clear" onclick="all_clear()">A/C</button>
     </div>
 </body>
 

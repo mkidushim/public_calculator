@@ -1,3 +1,10 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font: bold 14px Arial, sans-serif;
+}
+
 body {
     width: 80vw;
     height: 90vh;
@@ -18,8 +25,13 @@ button {
 }
 
 .calc {
+    margin-left: auto;
+    margin-right: auto;
+    width: 420px;
+    padding: 20px 0px 20px 25px;
+    background: #9dd2ea;
     position: relative;
-    left: 20%;
+    border: 2px solid;
     top: 200px;
 }
 
