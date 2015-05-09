@@ -11,6 +11,7 @@ body {
 }
 
 button {
+    border-radius: 10px;
     width: 75px;
     height: 35px;
     margin: 10px 0px 0px 5px;
@@ -28,7 +29,7 @@ button {
     margin-left: auto;
     margin-right: auto;
     width: 420px;
-    padding: 20px 0px 20px 25px;
+    padding: 20px 0px 20px 40px;
     background: #9dd2ea;
     position: relative;
     border: 2px solid;
