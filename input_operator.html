@@ -152,7 +152,7 @@
                 break;
 
             case '^':
-                result = parseFloat(Math.pow(number_array[0], number_array[1]));
+                result = (Math.pow(number_array[0], number_array[1]));
                 break;
         }
         answer = result;
@@ -182,7 +182,7 @@
         <button class="operator" type="button" onclick="multiply()">x</button>
         <br>
         <button type="button" onclick="input_digit(0)">0</button>
-        <button class="operator" type="button" onclick="get_total()">=</button>
+        <button class="operator" id='equals' type="button" onclick="get_total()">=</button>
         <button class="operator" type="button" onclick="Dot()">.</button>
         <button class="operator" type="button" onclick="divide()">÷</button>
         <br>
