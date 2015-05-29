@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript">
+    var number_array = ['', ''];
+    var number_index = 0;
+    var answer = 0;
+    var operator = '';
+    var decimalAdded = false;
+    var first_button = true;
+    var num_string = '';
+    var display = null;
+
+
+    $(document).ready(function() {
+        display = $('#inputdisplay');
+
+    })
+
+    function multiple_calc() {
+        num_string += " " + operator + " ";
+        if (first_button) {
+            first_button = false;
+        } else {
+            calculate();
+            console.log(number_array[1])
+            console.log(answer)
+            number_array[0] = answer;
+            number_array[1] = 0;
+        }
+
+
+    }
+
+    function input_digit(typed_number) {
+        number_array[number_index] = number_array[number_index] + typed_number;
+        num_string += typed_number;
+        display.val(num_string);
+        console.log("number_array : " + number_array);
+
+    };
+
+    function addition() {
+        number_index = 1;
+        operator = '+';
+        multiple_calc();
+
+
+    };
+
+    function subtract() {
+        number_index = 1;
+        operator = '-';
+        multiple_calc();
+
+    }
+
+    function divide() {
+        number_index = 1;
+        operator = '/';
+        multiple_calc();
+    }
+
+    function multiply() {
+
+        number_index = 1;
+        operator = '*';
+        multiple_calc();
+    }
+
+    function all_clear() {
+        number_index = 0;
+        number_array[0] = 0;
+        number_array[1] = 0;
+        answer = 0;
+        num_string = '';
+        first_button = true;
+        display.val('');
+    }
+
+    function num_clear() {
+
+        number_array[1] = 0;
+        num_string = number_array[0];
+        operator = '';
+        console.log(num_string);
+        console.log(number_array[0])
+        first_button = true;
+        display.val(num_string)
+    }
+
+    function exponent() {
+        number_index = 1;
+        operator = '^'
+        multiple_calc();
+    }
+
+    function Dot() {
+        if (!decimalAdded) {
+            num_string = number_array[number_index] + '.';
+            number_array[number_index] += '.';
+
+            display.val(num_string);
+            decimalAdded = true;
+        }
+    }
+
+    function get_total() {
+        calculate();
+        parseFloat(num_string);
+        num_string += ' = ' + answer;
+        display.val(num_string);
+    }
+
+    function calculate() {
+        console.log(num_string);
+
+        var result = null;
+
+        switch (operator) {
+            case '+':
+
+                result = parseFloat(number_array[0]) + parseFloat(number_array[1]);
+
+                console.log(number_array);
+                break;
+            case '-':
+                result = parseFloat(number_array[0]) - parseFloat(number_array[1]);
+
+                console.log(number_array);
+                break;
+            case '/':
+                if (number_array[1] == 0) {
+                    console.log('error');
+                    result = 'error'
+                    display.val(result)
+                    break;
+                } else {
+                    result = number_array[0] / number_array[1]
+
+                    console.log(number_array);
+                }
+                break;
+            case '*':
+                result = parseFloat(number_array[0]) * parseFloat(number_array[1]);
+                console.log(number_array);
+                break;
+
+            case '^':
+                result = (Math.pow(number_array[0], number_array[1]));
+                break;
+        }
+        answer = result;
+        console.log(answer);
+
+    }
+    </script>
+</head>
+
+<body>
+    <div class="calc">
+        <input id="inputdisplay" placeholder="Ready" readonly>
+        <br>
+        <button type="button" onclick="input_digit(7)">7</button>
+        <button type="button" onclick="input_digit(8)">8</button>
+        <button type="button" onclick="input_digit(9)">9</button>
+        <button class="operator" type="button" onclick="addition()">+</button>
+        <br>
+        <button type="button" onclick="input_digit(6)">6</button>
+        <button type="button" onclick="input_digit(5)">5</button>
+        <button type="button" onclick="input_digit(4)">4</button>
+        <button class="operator" type="button" onclick="subtract()">-</button>
+        <br>
+        <button type="button" onclick="input_digit(3)">3</button>
+        <button type="button" onclick="input_digit(2)">2</button>
+        <button type="button" onclick="input_digit(1)">1</button>
+        <button class="operator" type="button" onclick="multiply()">x</button>
+        <br>
+        <button type="button" onclick="input_digit(0)">0</button>
+        <button class="operator" id='equals' type="button" onclick="get_total()">=</button>
+        <button class="operator" type="button" onclick="Dot()">.</button>
+        <button class="operator" type="button" onclick="divide()">÷</button>
+        <br>
+        <button class="operator" type="button" id="period" onclick="exponent()">^</button>
+        <button class="clear" id="all_c" onclick="all_clear()">A/C</button>
+        <button class="clear button" id="num_c" onclick="num_clear()">C</button>
+    </div>
+</body>
+
+</html>
