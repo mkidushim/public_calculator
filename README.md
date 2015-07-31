@@ -1,6 +1,2 @@
 # Calculator
-
-### Basic Calculator 
-
-<a href="https://github.com/Learning-Fuze/calculator/tree/version_1/version_1#calculator">Click Here</a> for instuctions on the Basic Calculator
-
+I created a basic calculator that displays the two numbers and operator that the user chooses to click on and performs that operation when you click on the equal sign.  
