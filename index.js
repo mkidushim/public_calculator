@@ -24,12 +24,12 @@ for (var i = 0; i < keys.length; i++) {
             decimalAdded = false;
         } else if (operators.indexOf(btnVal) > -1) {
             var lastChar = inputVal[inputVal.length - 1];
-            if (inputVal != '' && operators.indexOf(lastChar) == -1){
+            if (inputVal != '' && operators.indexOf(lastChar) == -1)
                 input.innerHTML += btnVal;
-            }
             else if (inputVal == '' && btnVal == '-')
                 input.innerHTML += btnVal;
-            if (operators.indexOf(lastChar) > -1 && inputVal.length > 1)
+            if (operators.indexOf(lastChar) > -1 && inputVal.length > 1) {
+                
                 input.innerHTML = inputVal.replace(/.$/, btnVal);
             }
 
