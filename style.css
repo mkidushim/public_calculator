@@ -35,31 +35,18 @@ span {
     letter-spacing: 1px;
 }
 
-/*#calculator {
-    width: 400px;
-    height: auto;
-    margin: 100px auto;
-    padding: 20px 20px 9px;
-    background: turquoise;
-    position: relative;
-    top: 200px;
-    border-radius: 3px;
-}*/
 #calculator {
     width: 325px;
     height: auto;
     margin: 100px auto;
     padding: 20px 20px 9px;
-    background: turquoise;
+    background: linear-gradient(violet, blue);
     border-radius: 3px;
-   
 }
+
 .top span.clear {
     float: left;
 }
-
-
-/* Inset shadow on the screen to create indent */
 
 .top .screen {
     height: 40px;
@@ -73,15 +60,13 @@ span {
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
     text-align: right;
     letter-spacing: 1px;
+    background-color: gray;
 }
 
 .keys,
 .top {
     overflow: hidden;
 }
-
-
-/* Applying same to the keys */
 
 .keys span,
 .top span.clear {
@@ -93,36 +78,26 @@ span {
     height: 36px;
     background: violet;
     border-radius: 3px;
-    box-shadow: 0px 4px turquoise;
+    /*box-shadow: 0px 4px turquoise;*/
     margin: 0 7px 11px 0;
     color: white;
     line-height: 36px;
     text-align: center;
-    /* prevent selection of text inside keys */
     user-select: none;
-    /* Smoothing out hover and active states using css3 transitions */
-    transition: all 0.2s ease;
 }
 
-
-/* Remove right margins from operator keys */
-
-
-/* style different type of keys (operators/evaluate/clear) differently */
-
 .keys span.operator {
-    background: blue;
+    background: turquoise;
     margin-right: 0;
     float: right;
 }
 
 .keys span.eval {
-    background: green;
- 
+    background: turquoise;
     color: white;
 }
 
 .top span.clear {
-    background: red;
+    background: blueviolet;
     color: white;
 }
