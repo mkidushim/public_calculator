@@ -29,7 +29,7 @@ for (var i = 0; i < keys.length; i++) {
             else if (inputVal == '' && btnVal == '-')
                 input.innerHTML += btnVal;
             if (operators.indexOf(lastChar) > -1 && inputVal.length > 1) {
-                
+
                 input.innerHTML = inputVal.replace(/.$/, btnVal);
             }
 

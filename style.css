@@ -9,7 +9,7 @@ html {
     height: 100%;
     background-size: cover;
     background: white;
-    background: radial-gradient(circle, #fff 1%, #ccc);
+    background: linear-gradient(gray, black);
 }
 
 span {
