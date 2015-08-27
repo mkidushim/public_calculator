@@ -1,3 +1,3 @@
 # Calculator
-I Recently created a cleaner version of my calculator. Before I could not get the order of operations to work now it is working perfectly.   
+I built a simple calculator using javascript, html and css.  
 #Live Version: http://52.26.217.22/public_calculator/
